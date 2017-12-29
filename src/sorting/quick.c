@@ -47,6 +47,6 @@ int main(int argc, const char * argv[]) {
 		scanf("%d", &arr[i]);
 	}	
 	sort(arr, 0, size - 1);
-	// print_array(arr, 0, size);
+	print_array(arr, 0, size);
 	return 0;
 }
