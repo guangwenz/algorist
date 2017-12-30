@@ -5,9 +5,8 @@ Best: O(nlgn), AVG: theta(nlgn), Worst: O(n^2)
 
 void print_array(int arr[], int l, int r){
 	for(int i=l; i<r; i++){
-		printf("%d ", arr[i]);
+		printf("%d \n", arr[i]);
 	}
-	printf("\n");
 }
 
 void swap(int *a, int *b) {
@@ -32,7 +31,6 @@ int partition(int arr[], int l, int r) {
 
 void sort(int arr[], int l, int r) {
 	if(l < r){
-		printf("sorting l: %d, r: %d\n", l, r);
 		int m = partition(arr, l, r);
 		sort(arr, l, m - 1);
 		sort(arr, m+1, r);

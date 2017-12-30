@@ -2,16 +2,12 @@
 #define QUEUE_H_
 #include <stdbool.h>
 
-typedef struct
-{
-	int front,rear,size;
-	int capacity;
-	int *array;
-} queue ;
+struct Queue_;
+typedef struct Queue_ Queue;
 
-queue * queue_init(int capacity);
-void queue_enqueue(queue *q, int value);
-void queue_dequeue(queue *q, int value);
-bool queue_isempty(queue *q);
-bool queue_isfull(queue *q);
+Queue * queue_init(int capacity);
+void queue_enqueue(Queue *q, int value);
+void queue_dequeue(Queue *q, int value);
+bool queue_isempty(Queue *q);
+bool queue_isfull(Queue *q);
 #endif
