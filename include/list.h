@@ -3,8 +3,6 @@
 
 struct ListNode_;
 typedef struct ListNode_ ListNode;
-ListNode * list_init(int size);
-void list_push(ListNode * list, void *value);
-void list_isempty(ListNode * list);
-void list_print(ListNode * list);
+void list_push(ListNode ** head, void *value, size_t data_size);
+void list_print(ListNode * list, void (*printfunc)(void *));
 #endif

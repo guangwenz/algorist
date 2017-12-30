@@ -1,18 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 #include "list.h"
 struct ListNode_ {
-	int value;
-	struct ListNode_ * next;
+	void *data;
+	struct ListNode_ *next;
 };
-ListNode * list_init(int value){
-	ListNode *ret = malloc(sizeof(ListNode));
-	ret -> value = value;
-	ret -> next = NULL;
-	return ret;
-}
-void list_push(ListNode * list, void *value){}
-void list_isempty(ListNode * list){}
-void list_print(ListNode * list){
 
+void list_push(ListNode ** head, void *value, size_t data_size) {
+	ListNode *ret = malloc(sizeof(ListNode));
+	ret -> data = malloc(data_size);
+	ret -> next = *head;
+
+	memcpy(ret -> data, value, data_size);
+	*head = ret;
+}
+
+void list_print(ListNode * list, void (*printfunc)(void *)) {
+	while(list!=NULL){
+		printfunc(list -> data);
+		list = list -> next;
+	}
 }
