@@ -10,6 +10,11 @@ void print_long(void *data) {
 	printf("%ld\n", value);
 }
 
+bool comp_long(void *data){
+	long v = *(long *) data;
+	return v == 3;
+}
+
 int main(int argc, char const *argv[])
 {
 	ListNode * ints = NULL;
@@ -29,7 +34,10 @@ int main(int argc, char const *argv[])
 	list_push(&longs, &l1, sizeof(long));
 	list_push(&longs, &l2, sizeof(long));
 	list_push(&longs, &l3, sizeof(long));
-	list_push(&longs, &l4, sizeof(long));
+	list_push(&longs, &l4, sizeof(long));	
+
+	long new = 88;
+	list_insert(longs, &new, sizeof(long), comp_long);
 	list_print(longs, print_long);
 
 	return 0;

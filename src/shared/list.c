@@ -17,9 +17,29 @@ void list_push(ListNode ** head, void *value, size_t data_size) {
 	*head = ret;
 }
 
-void list_print(ListNode * list, void (*printfunc)(void *)) {
-	while(list!=NULL){
-		printfunc(list -> data);
-		list = list -> next;
+/**
+insert data into list before selected node
+*/
+void list_insert(ListNode *head, void *value, size_t data_size, bool (*compfunc)(void *)) {
+	ListNode *node = head;
+	while(node != NULL){
+		if(compfunc(node -> data)) {
+			ListNode *newnode = malloc(sizeof(ListNode));
+			newnode -> data = malloc(sizeof(data_size));
+			memcpy(newnode -> data, value, data_size);
+
+			newnode -> next = node -> next;
+			node -> next = newnode;
+			break;
+		}
+		node = node -> next;
+	}
+}
+
+void list_print(ListNode * head, void (*printfunc)(void *)) {
+	ListNode *node = head;
+	while(node!=NULL){
+		printfunc(node -> data);
+		node = node -> next;
 	}
 }
