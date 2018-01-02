@@ -13,6 +13,7 @@ add_executable(insert src/sorting/insert.c)
 add_executable(merge src/sorting/merge.c)
 add_executable(quick src/sorting/quick.c)
 add_executable(select src/sorting/select.c)
+add_executable(coin src/dp/coinchange.c)
 
 target_link_libraries(quick shared)
 add_subdirectory(test)
