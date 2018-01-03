@@ -11,19 +11,19 @@ void print_array(int arr[], int n) {
 /**
 version 1 with recursion
 */
-int fib(int n){
+long fib(long n){
 	if(n == 0) return 0;
 	if (n == 1) return 1;
 	else return fib(n-1) + fib(n-2);
 }
 
-int _fib(int n, int lookup[]){
+long _fib(long n, long lookup[]){
 
 	if(n == 0) return 0;
 	if (n == 1) return 1;
 
 	if(lookup[n] == NIL){
-		int ret = _fib(n-1, lookup) + _fib(n-2, lookup);
+		long ret = _fib(n-1, lookup) + _fib(n-2, lookup);
 		lookup[n] = ret;
 	}
 	return lookup[n];
@@ -31,21 +31,21 @@ int _fib(int n, int lookup[]){
 /**
 version 2, top down with memoization.
 */
-int fib_topdown(int n){
+long fib_topdown(long n){
 
 	if(n == 0) return 0;
 	if (n == 1) return 1;
 
-	int lookup[n];
+	long lookup[n];
 	for(int i=0;i<=n;i++) {lookup[i]=NIL;}
-	int ret = _fib(n, lookup);
+	long ret = _fib(n, lookup);
 	return ret;
 }
 
 /**
 version 3 bottom up implementation.
 */
-long fib_bottomup(int n) {
+long fib_bottomup(long n) {
 	if(n==0) return 0;
 	if(n==1) return 1;
 	else {
